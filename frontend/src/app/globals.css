@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #030704; /* Deep forest black */
+  --foreground: #eef3ef; /* Soft leaf white */
+  --card-bg: rgba(6, 12, 8, 0.65); /* Glassmorphic dark green */
+  --card-border: rgba(34, 197, 94, 0.12); /* Soft glowing green border */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(34, 197, 94, 0.05) 0%, transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 35%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Glassmorphism panel utility */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(34, 197, 94, 0.25);
+  box-shadow: 0 12px 40px 0 rgba(34, 197, 94, 0.08);
+}
+
+/* Scanning green line animation */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(250%); }
+  100% { transform: translateY(-100%); }
+}
+
+.scanner-line {
+  height: 3px;
+  background: linear-gradient(to bottom, transparent, #22c55e, transparent);
+  box-shadow: 0 0 8px #22c55e, 0 0 16px #22c55e;
+  animation: scan 4s ease-in-out infinite;
+}
+
+/* Glowing text effects */
+.glow-text-green {
+  text-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 4, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 197, 94, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 197, 94, 0.5);
+}
